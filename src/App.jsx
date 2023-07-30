@@ -6,6 +6,8 @@ import Home from "../pages/Home";
 import Cart from "../pages/Cart";
 import Login from '../pages/Login';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import { store } from './store';
+import { Provider } from 'react-redux';
 
 const router = createBrowserRouter(createRoutesFromElements(<Route path='/' element={<Layout />}>
   <Route index element={<Home />} />
@@ -16,7 +18,9 @@ function App() {
   // const [count, setCount] = useState(0);
 
   return (
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   )
 }
 
